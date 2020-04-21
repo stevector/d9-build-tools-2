@@ -19,6 +19,7 @@
     ],
     "require": {
         "composer/installers": "^1.8",
+        "drupal/address": "^1.8",
         "internal/upstream-configuration": "*"
     },
     "conflict": {
