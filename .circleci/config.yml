@@ -1,0 +1,31 @@
+version: 2.1
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - pantheon/push:
+          checkout: false
+          pre-steps:
+            - checkout
+            - playground/composer_install_no_dev
+            - run: composer prepare-for-pantheon
+            - run: cat .gitignore
+            - run: git status
+          post-steps:
+            - run: cd "/tmp/pantheon_repo" && git status
+            - run: echo "testing CI on master branch"
+            # These commands should be called from Quicksilver.
+            # https://github.com/pantheon-systems/quicksilver-examples/
+            - run: terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- updatedb -y
+            - run: terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" cr
+            - run: 
+                command: |
+                  # If exported configuration is available, then import it.
+                  if [ -f "config/system.site.yml" ] ; then
+                    terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- config-import --yes
+                  fi
+
+orbs:
+  cypress: cypress-io/cypress@1
+  playground: fauxalgore/playground@0.0.2
+  pantheon: pantheon-systems/pantheon@0.2.0
