@@ -1859,7 +1859,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon_advanced_page_cache.git",
-                "reference": "007cce06bc44b2cf387012384949fa028495b6a4"
+                "reference": "9f7bb200ca5620799a4d2a97e0a60f46b9170f02"
             },
             "require-dev": {
                 "drupal/coder": "^8.2",
@@ -1887,7 +1887,7 @@
                     "phpunit tests --colors=always"
                 ]
             },
-            "time": "2020-04-29T15:25:29+00:00"
+            "time": "2020-04-29T21:29:29+00:00"
         },
         {
             "name": "drupal/views_custom_cache_tag",
