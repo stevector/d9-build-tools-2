@@ -16,6 +16,7 @@ workflows:
             - run: echo "testing CI on master branch"
             # These commands should be called from Quicksilver.
             # https://github.com/pantheon-systems/quicksilver-examples/
+            - run: sleep 20
             - run: terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" -- updatedb -y
             - run: terminus -n drush "$TERMINUS_SITE.$TERMINUS_ENV" cr
             - run: 
