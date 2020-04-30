@@ -14,11 +14,18 @@
         },
         {
             "type": "git",
+            "url": "https://github.com/pantheon-systems/pantheon_advanced_page_cache.git"
+        },
+        {
+            "type": "git",
             "url": "https://github.com/stevector/mysql56.git"
         }
     ],
     "require": {
         "composer/installers": "^1.8",
+        "drupal/address": "^1.8",
+        "drupal/pantheon_advanced_page_cache": "dev-core-version-compatibility",
+        "drupal/views_custom_cache_tag": "^1.2",
         "internal/upstream-configuration": "*"
     },
     "conflict": {
